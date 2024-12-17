@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 #define MAX 100
+
 
 using namespace std;
 
@@ -33,29 +35,29 @@ char Stack::pop(){
     return c;
 }
 
-int isPalindrome(string str){
+bool isPalindrome(string str){
     Stack s;
     string res;
     for(int i=0;i<str.size();i++){
         if(str[i] != ' '){
-            s.push(str[i]);
+            s.push(tolower(str[i]));
         }
     }
     int i=0;
     while(str[i] != '\0'){
         if(str[i] != ' '){
-            if(str[i] != s.pop()) return -1;
+            if(tolower(str[i]) != s.pop()) return false;
         }
         i++;
     }
-    return 0;
+    return true;
 }
 
 int main(){
-    string str = "Poor Dan is in a droop";
+    string str = "Pooir Dan is in a droop";
     if(isPalindrome(str)){
         cout<<"string : "<<str<<" is palindrome";
     }else{
-        cout<<"string : "<<str<<" is palindrome";
+        cout<<"string : "<<str<<" is not a palindrome";
     }
 }
