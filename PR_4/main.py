@@ -1,5 +1,5 @@
 def palindrome(str):
-    reverse = str.lower() == str[:].lower()
+    reverse = str.lower() == str[::-1].lower()
     return reverse
 
 def count_char(str):
@@ -13,7 +13,7 @@ str = input("please enter string : ")
 while True:
     ch = int(input("1.Check Palindrome\n2.counts of each character\n.3.exit\n"))
     if ch == 1:
-        if palindrome:
+        if palindrome(str):
             print(f"string {str} is palindrome")
         else:
             print(f"string {str} is not palindrome")
