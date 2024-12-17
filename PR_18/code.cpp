@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 #define MAX 100
 
 using namespace std;
@@ -38,7 +39,9 @@ string reverse(string str){
     Stack s;
     string res;
     for(int i=0;i<str.size();i++){
-        s.push(str[i]);
+        if(str[i] != ' '){
+            s.push(tolower(str[i]);
+        }
     }
     while(s.top != -1){
         res += s.pop();
